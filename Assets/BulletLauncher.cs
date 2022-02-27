@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class BulletLauncher : MonoBehaviour
 {
 
     public GameObject bulletPrefab;
     public int speed;
+    public int score;
+    public float time;
+    public GameObject enemyPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,5 +29,16 @@ public class BulletLauncher : MonoBehaviour
            
 
         }
+
+        time=time+Time.deltaTime;
+        if(time > 3.0f)
+        {
+            float x = Random.Range(Random.Range(-5f, -15f), Random.Range(5f, 15f));
+            float y = Random.Range(1f, 3f);
+            float z= Random.Range(Random.Range(-5f, -15f), Random.Range(5f, 15f));
+            Instantiate(enemyPrefab, new Vector3(x, y, z), Quaternion.identity);
+            time = 0.0f;
+        }
     }
+   
 }

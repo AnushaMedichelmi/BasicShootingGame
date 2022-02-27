@@ -8,6 +8,7 @@ public class CameraRotation : MonoBehaviour
     // Start is called before the first frame update
 
     public float rotationSpeed;
+    public int score;
     void Start()
     {
         
@@ -22,4 +23,12 @@ public class CameraRotation : MonoBehaviour
         Camera cam = GetComponentInChildren<Camera>();
         cam.transform.localRotation = Quaternion.Euler(-mouseY, 0, 0)*cam.transform.localRotation;
     }
+
+   /* public void Score()
+    {
+        score++;
+        print("score of the player" + score);
+        if (score >= 10)
+            print("You won the game");
+    }*/
 }
